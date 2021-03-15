@@ -2,7 +2,13 @@ const PORT = process.env.PORT || 8001;
 const ENV = require("./environment");
 
 const app = require("./application")(ENV, { updateAppointment });
-const server = require("http").Server(app);
+// const server = require("http").Server(app);
+
+const server = require("http").createServer(app);
+server.timeout = 25*1000;
+server.keepAliveTimeout = 70*1000;
+server.headersTimeout = 120*1000;
+
 
 const WebSocket = require("ws");
 const wss = new WebSocket.Server({ server });
