@@ -5,9 +5,9 @@ const app = require("./application")(ENV, { updateAppointment });
 const server = require("http").Server(app);
 
 // const server = require("http").createServer(app);
-server.timeout = 29*1000;
-server.keepAliveTimeout = 70*1000;
-server.headersTimeout = 120*1000;
+server.timeout = 25*1000;
+server.keepAliveTimeout = 90*1000;
+server.headersTimeout = 150*1000;
 
 
 const WebSocket = require("ws");
